@@ -17,5 +17,4 @@ def download_csv():
     limit = request.args.get('limit', 0, type=int)
     data = getCSV(limit)
     data.to_csv(os.path.join(app.root_path, 'data.csv'), index=False)
-    return send_file(os.path.join(app.root_path, 'data.csv'),
-                     attachment_filename='data.csv')
+    return send_file(os.path.join(app.root_path, 'data.csv'), mimetype='application/x-csv', attachment_filename='data.csv', as_attachment=True))
