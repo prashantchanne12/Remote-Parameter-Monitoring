@@ -18,8 +18,8 @@ def getCSV(limit=None):
             [d.to_dict() for d in data.stream()])\
         .sort_values(['timestamp'])
 
-    df['timestamp'] = [datetime
+    df['timestamp'] = [str(datetime
                        .fromtimestamp(time, timezone('Asia/Kolkata'))
-                       .strftime("%d/%m/%Y %H:%M:%S") for time in df.timestamp]
+                       .strftime("%d/%m/%Y %H:%M:%S")) for time in df.timestamp]
 
     return df
