@@ -24,6 +24,4 @@ def download_csv():
     data = getDF(limit)
     data = formatTime(data)
     data.to_csv(os.path.join(app.root_path, 'data.csv'), index=False)
-    return send_file(
-        os.path.join(app.root_path, 'data.csv'),
-        mimetype='application/x-csv')
+    return send_file(os.path.join(app.root_path, 'data.csv'), mimetype='application/x-csv', attachment_filename='data.csv', as_attachment=True)
