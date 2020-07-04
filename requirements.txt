@@ -1,6 +1,7 @@
 Flask==1.1.1
 firebase_admin
 pandas
+matplotlib
 datetime
 pytz
 gunicorn
