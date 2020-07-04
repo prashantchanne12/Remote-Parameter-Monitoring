@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="mx-4 my-3">
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              {% for col in cols %}
+                <th scope="col">{{col.capitalize()}}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+        <tbody>
+          {% for row in rows %}
+            <tr>
+              {% for col in cols %}
+              <td scope="row">{{row[col]}}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5 text-center">
+      <img src="{{ url_for('static', filename='plot.png') }}" class="img-fluid mb-4">
+      <a class="btn btn-dark mt-4" href="{{ url_for('download_csv') }}">Download Data</a>
+    </div>
+  </div>
+
+{% endblock content %}
